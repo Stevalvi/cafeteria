@@ -1,0 +1,40 @@
+
+@use 'base/variables';
+@use 'base/mixins';
+
+.footer {
+    background-color: variables.$primario;
+    .contenido-footer {
+        padding: 5rem;
+
+        @include mixins.tablet { 
+            @include mixins.grid(3, 2rem);
+        }
+    }
+    .copyright {
+        text-align: center;
+        margin: 0; // Para que no desborde el footer, ya que tenía margin bottom y hacia que se viera el color del body debajo del footer
+        padding: 2rem;
+        color: variables.$blanco;
+    }
+}
+
+.footer-box {
+    font-family: variables.$fuenteCursiva;
+    text-align: center;
+    margin-bottom: variables.$separacion;
+
+    @include mixins.tablet { 
+        margin-bottom: 0;
+    }
+    h3 {
+        font-family: variables.$fuenteCursiva;
+        margin: 0 0 1rem 0;
+        font-size: 2.4rem;
+        color: variables.$secundario;
+    }
+    p, a {
+        font-size: 2rem;
+        margin: 0;
+    }
+}

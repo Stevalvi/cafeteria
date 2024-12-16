@@ -1,0 +1,22 @@
+
+@use 'base/mixins';
+
+.barra {
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.tablet { 
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo { // En sass para la anidación solo basta con colocar la clase del elemento al que queremos hacerle cambios, siempre y cuando esté dentro de su elemento padre, en este caso .barra es la clase padre de .logo que es uno de sus hijos
+        width: 50%;
+        margin: 0 auto;
+
+        @include mixins.tablet { 
+            width: 20rem;
+            margin: 0;
+        }
+    }
+}

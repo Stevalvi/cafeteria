@@ -1,0 +1,46 @@
+@use 'variables';
+
+h1, h2, h3 {
+    font-family: variables.$fuentePrincipal;
+    margin: 0 0 variables.$separacion 0;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.5;
+}
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.6rem;
+    color: variables.$primario;
+
+    span {
+        color: variables.$secundario;
+        font-size: 1.8rem;
+        display: block; //Para dar el salto de linea y posicionar el otro texto abajo
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        width: 10rem;
+        height: 10rem;
+        margin: 0 auto;
+        background-image: url(../img/cafe.svg); //Recordemos que para las imágenes debemos salir de ese archivo app.css que es donde nuestro código se guarda al final, entonces es salirnos de ese archivo, carpeta e ingresar a la de img
+        background-size: 10rem; //Ya que la imagen por defecto mide mas de 10rem, con el background size la obligamos a medir los 10rem
+    }
+}
+.heading-blanco {
+    @extend h2; // De esta forma con @extends heredamos lo que tenga en la etiqueta h2
+     color: variables.$blanco;
+
+     span {
+        color: variables.$blanco;
+     }
+     &::after {
+        display: none; // De esta forma quitamos esa herencia del after para no tenerlo
+     }
+}
+h3 {
+    font-size: 3.2rem;
+}

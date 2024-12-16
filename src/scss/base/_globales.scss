@@ -1,0 +1,42 @@
+
+// Para poder usar variables de otro archivo, de usa use y el nombre del archivo
+@use 'variables';
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: variables.$fuenteSecundaria; // Colocamos el nombre del archivo, seguido del nombre de la variable que deseamos utilizar
+    font-size: 1.6rem;
+    background-color: variables.$cafeClaro;
+}
+p {
+    color: variables.$negro;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+    color: variables.$negro;
+
+}
+img {
+    max-width: 100%;
+    height: auto; // Para que las imágenes se vayan ajustando deacuerdo a su altura por defecto
+    display: block;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+} // Con ese código reseteamos un ul, le quitamos esa viñeta con list style none

@@ -1,0 +1,43 @@
+@use 'base/variables';
+@use 'base/mixins';
+
+.proceso-cafe {
+    margin-bottom: variables.$separacion;
+
+    @include mixins.tablet { 
+        display: flex;
+        gap: variables.$separacion;
+        align-items: center;
+    }
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    &:nth-child(even) { // Con ese event le estamos diciendo que seleccione todos los números y le aplique lo de las llaves
+        .texto { // El order solo se debe usar cuando haya un display flex en el elemento padre, en este caso el elemento que lo tiene es .proceso-cafe, por lo tanto, se puede usar
+            order: -1; // Con ese order -1, posiciona el texto en la primera columna, e implicitamente posiciona la imágen en la 2 columna
+        }
+        
+    }
+    .imagen,
+    .texto {
+        flex: 1; // De esa forma van a tener un factor de crecimiento de 1 y medirán igual 
+    }
+
+    .texto {
+        margin-top: 1rem;
+
+        h3 {
+            margin: 0;
+            text-align: left;
+            color: variables.$primario;
+            
+            &::after { // Para el borde 
+                content: '';
+                display: block;
+                width: 50%;
+                height: 2px;
+                background-color: variables.$secundario;
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+@use 'base/variables';
+@use 'base/mixins';
+
+.contenido-menu {
+    background-image: url(../img/cafe.jpg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+    aspect-ratio: 3 / 6; //Esto es para ubicar en un dispositivo pequeño la imágen debajo del texto, el 3 es el valor horizontal y el 6 vertical, se lee de la siguiente forma: Por cada 3 valores horizontales recibe 5 verticales.
+
+    @include mixins.telefono { 
+        aspect-ratio: 3 / 4;
+    }
+
+    @include mixins.tablet { 
+        @include mixins.grid(2, variables.$separacion);
+        aspect-ratio: 16 / 6;
+        background-size: 40%;
+        background-position: bottom right;
+    }
+
+    .texto {
+        p {
+            font-size: 2rem;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+
+@use 'base/variables';
+@use 'base/mixins';
+
+
+.nuestro-menu {
+    background-image: url(../img/menu_arriba.svg), url(../img/menu_abajo.svg), linear-gradient(to top, variables.$primario, variables.$primario); // Agregamos las dos imágenes y con el linear gradiente agregamos el background color de la seccion de menu
+    background-repeat: no-repeat;
+    background-position: center 5rem, center 92%, 100%; //De esta forma posicionamos las dos imágenes, una arriba y la otra abajo, el primer valor que es center y 5rem aplica para la primera image, y después de la coma ese center y 92% aplica a la segunda imágen, y el 100% es para que el background-color o el linear gradient ocupe el 100% del contenido del menú y no se separe de la otra sección de arriba.
+    background-size: 200%; // Le damos tamaño a las imágenes para un dispositivo pequeño
+    padding: 15rem 2rem 20rem 2rem;
+   
+    @include mixins.tablet { 
+        padding: 15rem 0 20rem 0;
+        background-size: 100%; //Le damos tamaño a las imágenes en un dispositivo más grande
+    }
+    @include mixins.desktop { 
+        background-size: 50%, 50%, 100%; // Los 50% son para cada imágen y el 100% para el background-color
+    }
+}
+
+.grid-menu {
+    @include mixins.tablet { 
+        @include mixins.grid(2, 2rem);
+    }
+}
+
+.menu {
+    h3 {
+        color: variables.$blanco;
+    }
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+            color: variables.$blanco;
+            font-size: 2.2rem;
+            line-height: 1.5;
+            margin: 0 0 2rem 0;
+
+            span {
+                display: block;
+                color: variables.$secundario;
+            }
+        }
+        .precio {
+            font-size: 4rem;
+            font-weight: 700;
+        }
+    }
+}

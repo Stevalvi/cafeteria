@@ -1,0 +1,28 @@
+
+// De esta forma le podemos asignar a varios elementos un background-color de diferente color y se guardará su respectivo color al que le asignamos a cada uno
+
+@use 'variables';
+
+@mixin telefono {
+    @media (min-width: variables.$telefono) {
+        @content; // Con este content le estamos diciendo que todo lo que esté dentro del media querie lo inyeccte dentro de las llaves
+    }
+}
+
+@mixin tablet {
+    @media (min-width: variables.$tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: variables.$desktop) {
+        @content;
+    }
+}
+
+@mixin grid( $columnas, $espaciado ) { // De esta forma, le damos dos variables, la primera es la cantidad de columnas, y el segundo valor el gap, siempre que vayamos a integrar un grid, usamos este mixin
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $espaciado;
+}

@@ -1,0 +1,12 @@
+
+@use 'base/variables';
+
+.text-center {
+    text-align: center;
+}
+.bg-white {
+    background-color: variables.$blanco;
+}
+.padding-bottom-0 {
+    padding-bottom: 0;
+}

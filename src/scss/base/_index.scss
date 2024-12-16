@@ -1,0 +1,7 @@
+@forward 'normalize'; // forward nos permite guardar otros archivos en un archivo, de esta forma usaremos este archivo para guardar todos los archivos y poder usarlos en el app.scss
+@forward 'variables';
+@forward 'mixins';
+@forward 'globales';
+@forward 'tipografia';
+
+

@@ -1,0 +1,13 @@
+@use 'base/variables';
+@use 'base/mixins';
+
+.contenido-principal {
+    background-color: variables.$blanco;
+    padding: 5rem 2rem;
+
+    @include mixins.tablet { 
+        padding: 10rem;
+        margin-top: -10rem; // Para poder posicionar el main encima del header
+        position: relative; // De esa forma se va a posicionar encima de la imágen;
+    }
+}

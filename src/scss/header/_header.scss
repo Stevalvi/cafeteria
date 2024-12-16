@@ -1,0 +1,66 @@
+
+// Este archivo tiene el guion bajo al inicio del nombre porque va a ser un archivo incluido en otro
+
+@use 'base/variables';
+@use 'base/mixins';
+
+.header {
+    padding: 5rem 0;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include mixins.tablet { 
+        min-height: 70rem;
+    }
+    
+
+
+    &::before { // Ese signo & es para que al momento de compilar este código de sass en el archivo app.css para que se muestre en css, ese signo hace que se vea como un seudoselector el before sobre el .header, sin ese signo el before se acomodaría como un elemento de la clase .header.
+        content: '';
+        background-color: variables.$negro;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: .6; //Para darle transparencia, va del 0 al 1, siendo 0 totalmente transparent, y 1 totalmente del color que se le ponga, para darle una transparencia del 60% se coloca .6
+    }
+
+    .contenido-header {
+        position: relative; // Para que se ponga adelante del ::before y se pueda ver bien el contenido
+
+        h1 {
+            text-align: center;
+            color: variables.$blanco;
+            text-transform: uppercase;
+            margin-top: 5rem;
+
+            @include mixins.tablet { 
+                margin-top: 10rem;
+            }
+        }
+    }
+}
+
+// Header de cada página
+
+.header-inicio {
+    background-image: url(../img/header_inicio.jpg);
+}
+
+.header-nosotros {
+    background-image: url(../img/header_nosotros.jpg);
+}
+
+.header-proceso {
+    background-image: url(../img/header_proceso.jpg);
+}
+.header-menu {
+    background-image: url(../img/header_menu.jpg);
+}
+.header-galeria {
+    background-image: url(../img/header_galeria.jpg);
+}
+.header-contacto {
+    background-image: url(../img/header_contacto.jpg);
+}
